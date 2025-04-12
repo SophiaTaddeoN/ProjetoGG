@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../Imagens/carta.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.meio {
+  display: flex;
+  justify-content: center;
+}
+
+.coluna {
+  flex-direction: column;
+  align-items: center;
+}
+
+.margin {
+  margin: 100px 0;
+}
+
+#titulo {
+  font-family: "Gloria Hallelujah", cursive;
+  font-weight: 400;
+  color: white;
+  font-size: 64pt;
+  text-shadow: 0 0 10px gray, 0 0 20px gray, 0 0 30px lightgray;
+}
+
+#links {
+  display: flex;
+  justify-content: center;
+  font-family: "Gloria Hallelujah", cursive;
+  font-weight: 150;
+  color: white;
+  font-size: 32pt;
+  text-shadow: 0 0 10px gray, 0 0 20px gray, 0 0 30px lightgray;
+  margin: 0;
+}
+
+.info-btn {
+  padding: 8px 16px;
+  color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px;
+  background-color: black;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: larger;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  font-family: "Gloria Hallelujah", cursive;
+  font-weight: 150;
+  color: white;
+  font-size: 16pt;
+  text-align: center;
+  width: 500px;
+}
+
+img {
+  height: 300px;
+  width: 200px;
+  border: 2px white solid;
+  display: flex;
+  justify-content: center;
+}
+
+#imagens {
+  justify-content: center;
+  display: flex;
+  gap: 100px;
+}
+
+h6 {
+  display: flex;
+  justify-content: center;
+  font-family: "Gloria Hallelujah", cursive;
+  font-weight: 150;
+  color: white;
+  font-size: 16pt;
+  text-align: center;
+  margin: 0;
+}
