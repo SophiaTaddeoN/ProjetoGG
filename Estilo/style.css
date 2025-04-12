@@ -35,8 +35,6 @@ body {
   color: white;
   font-size: 64pt;
   text-shadow: 0 0 10px gray, 0 0 20px gray, 0 0 30px lightgray;
-  display: flex;
-  justify-content: center;
 }
 
 #links {
@@ -85,9 +83,7 @@ img {
   gap: 100px;
 }
 
-h6 {
-  display: flex;
-  justify-content: center;
+.nomes {
   font-family: "Gloria Hallelujah", cursive;
   font-weight: 150;
   color: white;
@@ -105,4 +101,10 @@ h6 {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+/***************************************ESTILO JOGO******************************************/
+
+#canva1 {
+  background-color: aqua;
 }
