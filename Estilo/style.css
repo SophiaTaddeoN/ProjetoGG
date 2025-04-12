@@ -37,50 +37,53 @@ body {
   text-shadow: 0 0 10px gray, 0 0 20px gray, 0 0 30px lightgray;
 }
 
-#links {
-  display: flex;
-  justify-content: center;
-  font-family: "Gloria Hallelujah", cursive;
-  font-weight: 150;
-  color: white;
-  font-size: 32pt;
-  text-shadow: 0 0 10px gray, 0 0 20px gray, 0 0 30px lightgray;
-  margin: 0;
+a {
+  text-decoration: none;
 }
 
-.info-btn {
-  padding: 8px 16px;
+.links {
+  padding: 0 10px;
+}
+
+.menu-btn {
+  font-size: 32pt;
+  padding: 15px 20px;
+}
+
+.outros-btn {
+  font-size: 15pt;
+  padding: 10px 15px;
+}
+
+.botao {
   color: white;
   border: 2px solid white;
   border-radius: 10px;
-  cursor: pointer;
-  margin: 5px;
   background-color: black;
   font-family: "Gloria Hallelujah", cursive;
-  font-size: larger;
 }
 
-#texto {
+.texto {
   font-family: "Gloria Hallelujah", cursive;
-  font-weight: 150;
   color: white;
+  font-weight: 150;
   font-size: 16pt;
-  text-align: center;
   width: 500px;
-}
-
-img {
-  height: 300px;
-  width: 200px;
-  border: 2px white solid;
   display: flex;
   justify-content: center;
+  text-align: center;
+}
+
+.img {
+  border: 2px white solid;
 }
 
 #imagens {
-  justify-content: center;
   display: flex;
-  gap: 100px;
+  justify-content: center;
+  height: 300px;
+  width: 200px;
+  gap: 200px;
 }
 
 .nomes {
@@ -90,21 +93,4 @@ img {
   font-size: 16pt;
   text-align: center;
   margin: 0;
-}
-
-.texto {
-  display: flex;
-  justify-content: center;
-}
-
-#texto {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-/***************************************ESTILO JOGO******************************************/
-
-#canva1 {
-  background-color: aqua;
 }
