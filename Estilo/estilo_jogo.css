@@ -1,37 +1,37 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-image: url("../Imagens/carta.jpg");
-    background-size: 100% 100%;
-    background-position: center;
-    background-attachment: fixed;
+  background-image: url("../Imagens/carta.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .meio {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .outros-btn {
-    font-size: 15pt;
-    padding: 10px 15px;
+  font-size: 15pt;
+  padding: 10px 15px;
 }
 
 .botao {
-    color: white;
-    border: 2px solid white;
-    border-radius: 10px;
-    background-color: black;
-    font-family: "Gloria Hallelujah", cursive;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: black;
+  font-family: "Gloria Hallelujah", cursive;
 }
 
 #canva1 {
-    margin: 40px 0 20px 0;
-    background-color: aqua;
-    height: 600px;
-    width: 1000px;
+  margin: 40px 0 20px 0;
+  background-color: aqua;
+  height: 600px;
+  width: 1000px;
 }
