@@ -18,4 +18,5 @@ class telas {
     }
 }
 
-let tela_1 = new telas('Imagens/praia.jpeg', 0, 0, 1000, 600);
+let tela_1 = new telas('../Imagens/praia.jpeg', 0, 0, 1000, 600);
+tela_1.desenhe();
