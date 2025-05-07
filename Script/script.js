@@ -9,14 +9,16 @@ class Telas {
         this.y = y;
         this.width = width;
         this.height = height;
+        this.carregada = false;
+        this.img.onload = () => {
+            this.carregada = true;
+        };
+        this.img.src = this.url_img;
     }
     desenhe(){
-        this.img.onload = () => {
-            ctx.beginPath();
+        if (this.carregada) {
             ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-            ctx.closePath();
         }
-        this.img.src = this.url_img;
     }
 }
 
@@ -28,21 +30,21 @@ class Objetos {
         this.y = y;
         this.width = width;
         this.height = height;
+        this.carregada = false;
+        this.img.onload = () => {
+            this.carregada = true;
+        };
+        this.img.src = this.url_img;
     }
     desenhe(){
-        this.img.onload = () => {
-            ctx.beginPath();
+        if (this.carregada) {
             ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-            ctx.closePath();
         }
-        this.img.src = this.url_img;
     }
 }
 
 let tela_1 = new Telas('Imagens/praia.jpeg', 0, 0, 1000, 600);
-tela_1.desenhe();
 let tela_2 = new Telas('Imagens/fundo-cabana.jpeg', 0, 0, 1000, 600);
-
 
 let bancada_cozinha2 = new Objetos('Imagens/bancada-cozinha2.png', 900, 120, 100, 160);
 let fogao = new Objetos('Imagens/fogao.png', 802, 120, 100, 110)
@@ -55,14 +57,7 @@ let florzinha = new Objetos('Imagens/florzinha.png', 500, 300, 43, 74)
 
 
 function animation(){
-    // ctx.clearRect(0,0,1000,600);
-    if (florzinha.x == 1000){
-        florzinha.x = x - florzinha.width / 2;
-    }
-    else if(florzinha.y == 600){
-        florzinha.y = 600;
-    }
-
+    ctx.clearRect(0,0,canva1.width, canva1.height);
     tela_2.desenhe();
     bancada_cozinha2.desenhe();
     bancada_cozinha1.desenhe();
@@ -76,19 +71,26 @@ function animation(){
     requestAnimationFrame(animation)
 }
 
-animation()
+animation();
 
 document.addEventListener('keydown', function(evento){
     let tecla = evento.key;
     console.log(tecla);
 
-    let velocidade = 5;
-    if(tecla == 'W' || tecla =='w'){florzinha.y -= velocidade};
-    if(tecla == 'E' || tecla == 'e'){florzinha.x += velocidade; florzinha.y -= velocidade};
-    if(tecla == 'Q' || tecla == 'q'){florzinha.x -= velocidade; florzinha.y -= velocidade};
-    if(tecla == 'S' || tecla =='s'){florzinha.y += velocidade};
-    if(tecla == 'A' || tecla =='a'){florzinha.x -= velocidade};
-    if(tecla == 'D' || tecla =='d'){florzinha.x += velocidade};
+    let velocidade = 4;
+
+    let novaX = florzinha.x;
+    let novaY = florzinha.y;
+
+    if(tecla == 'W' || tecla =='w'){novaY -= velocidade};
+    if(tecla == 'S' || tecla =='s'){novaY += velocidade};
+    if(tecla == 'A' || tecla =='a'){novaX -= velocidade};
+    if(tecla == 'D' || tecla =='d'){novaX += velocidade};
+
+    novaX = Math.max(0, Math.min(novaX, canva1.width - florzinha.width));
+    novaY = Math.max(0, Math.min(novaY, canva1.height - florzinha.height));
+
+    florzinha.x = novaX;
+    florzinha.y = novaY;
 })
 
-florzinha.desenhe();
