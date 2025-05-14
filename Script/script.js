@@ -116,6 +116,8 @@ let cadeira_jantar_direita = new Objetos('Imagens/cadeira_jantar_direita.png', 8
 let mesa_jantar = new Objetos('Imagens/mesa_jantar.png', 617, 375, 240, 140);
 let cadeira_jantar_atras1 = new Objetos('Imagens/cadeira_jantar_atras.png', 655, 435, 70, 130);
 let cadeira_jantar_atras2 = new Objetos('Imagens/cadeira_jantar_atras.png', 755, 435, 70, 130);
+let sofa = new Objetos('Imagens/sofa.png', 50, 300, 400, 170);
+let porta = new Objetos('Imagens/porta.jfif', 350, 60, 70, 150)
 
 let orion = new PersonagemAnimado({
     frente: ['Imagens/orion_frente1.png', 'Imagens/orion_frente2.png', 'Imagens/orion_frente3.png'],
@@ -134,11 +136,11 @@ let tela_1 = {
 let tela_2 = {
     tela: new Telas('Imagens/fundo-cabana.jpeg', 0, 0, 1000, 600),
     
-    cenario_tras: [bancada_cozinha2, bancada_cozinha1, fogao, geladeira, planta],
+    cenario_tras: [bancada_cozinha2, bancada_cozinha1, fogao, geladeira, planta, porta],
 
     cenario_baixo: tapete,
     
-    cenario_frente: [cadeira_jantar_frente1, cadeira_jantar_frente2, cadeira_jantar_esquerda, cadeira_jantar_direita, mesa_jantar,florzinha, cadeira_jantar_atras1, cadeira_jantar_atras2],
+    cenario_frente: [cadeira_jantar_frente1, cadeira_jantar_frente2, cadeira_jantar_esquerda, cadeira_jantar_direita, mesa_jantar,florzinha, cadeira_jantar_atras1, cadeira_jantar_atras2, sofa],
 
     desenhe: function() {
         this.tela.desenhe();
