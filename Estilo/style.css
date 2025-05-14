@@ -4,11 +4,19 @@
   box-sizing: border-box;
 }
 
-body {
+body, html {
   background-image: url("../Imagens/carta.jpg");
   background-size: 100% 100%;
   background-position: center;
   background-attachment: fixed;
+  height: 100%;
+}
+
+.CentroHorizontalVertical {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .meio {
@@ -22,27 +30,34 @@ body {
 }
 
 .margin {
-  margin: 100px 0;
-}
-
-.margin2 {
   margin: 10px 0;
 }
 
 #titulo {
+  color: white;
   font-family: "Gloria Hallelujah", cursive;
   font-weight: 400;
-  color: white;
   font-size: 64pt;
   text-shadow: 0 0 10px gray, 0 0 20px gray, 0 0 30px lightgray;
 }
 
-a {
+.links {
+  color: white;
   text-decoration: none;
 }
 
-.links {
+#BotaoMenu-Box {
+  width: 723.06px;
+  display: flex;
+  justify-content: space-between;
   padding: 0 10px;
+}
+
+.botao {
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: black;
+  font-family: "Gloria Hallelujah", cursive;
 }
 
 .menu-btn {
@@ -55,42 +70,31 @@ a {
   padding: 10px 15px;
 }
 
-.botao {
-  color: white;
-  border: 2px solid white;
-  border-radius: 10px;
-  background-color: black;
-  font-family: "Gloria Hallelujah", cursive;
-}
-
 .texto {
   font-family: "Gloria Hallelujah", cursive;
   color: white;
   font-weight: 150;
   font-size: 16pt;
-  width: 500px;
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+#texto {
+  width: 500px;
 }
 
 .img {
   border: 2px white solid;
 }
 
-#imagens {
+#Imagens-Box {
   display: flex;
-  justify-content: center;
-  height: 300px;
-  width: 200px;
-  gap: 200px;
+  justify-content: space-between;
+  height: 250px;
+  width: 642.66px;
 }
 
-.nomes {
-  font-family: "Gloria Hallelujah", cursive;
-  font-weight: 150;
-  color: white;
-  font-size: 16pt;
-  text-align: center;
-  margin: 0;
+#tela {
+  display: none;
 }
