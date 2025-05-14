@@ -62,7 +62,7 @@ class PersonagemAnimado {
         this.frames = this.sprites[this.direcao];
         this.frameIndex = 0;
         this.contador = 0;
-        this.delay = 5; // controla a velocidade da animação
+        this.delay = 4; // controla a velocidade da animação
 
         this.img = new Image();
         this.img.src = this.frames[this.frameIndex];
@@ -108,7 +108,7 @@ let geladeira = new Objetos('Imagens/geladeira.png', 458, 80, 100, 150);
 let cama = new Objetos('Imagens/cama.png', 40, 90, 170, 228);
 let tapete = new Objetos('Imagens/tapete.png', 670, 250, 148, 99);
 let planta = new Objetos('Imagens/planta.png', 925, 230, 78, 113);
-let florzinha = new Objetos('Imagens/florzinha.png', 500, 300, 43, 74);
+let florzinha = new Objetos('Imagens/florzinha.png', 720, 366, 43, 74);
 let cadeira_jantar_frente1 = new Objetos('Imagens/cadeira_jantar_frente.png', 655, 335, 70, 130);
 let cadeira_jantar_frente2 = new Objetos('Imagens/cadeira_jantar_frente.png', 755, 335, 70, 130);
 let cadeira_jantar_esquerda = new Objetos('Imagens/cadeira_jantar_esquerda.png', 607, 360, 70, 130);
@@ -125,7 +125,12 @@ let orion = new PersonagemAnimado({
 }, 500, 300, 43, 74);
 
 let tela_1 = {
-    tela: new Telas('Imagens/praia.jpeg', 0, 0, 1000, 600),}
+    tela: new Telas('Imagens/praia.jpeg', 0, 0, 1000, 600),
+    desenhe: function() {
+        this.tela.desenhe();
+        orion.desenhe();
+    } 
+}
 let tela_2 = {
     tela: new Telas('Imagens/fundo-cabana.jpeg', 0, 0, 1000, 600),
     
@@ -133,31 +138,16 @@ let tela_2 = {
 
     cenario_baixo: tapete,
     
-    cenario_frente: [cadeira_jantar_frente1, cadeira_jantar_frente2, cadeira_jantar_esquerda, cadeira_jantar_direita, mesa_jantar, cadeira_jantar_atras1, cadeira_jantar_atras2],
+    cenario_frente: [cadeira_jantar_frente1, cadeira_jantar_frente2, cadeira_jantar_esquerda, cadeira_jantar_direita, mesa_jantar,florzinha, cadeira_jantar_atras1, cadeira_jantar_atras2],
 
     desenhe: function() {
         this.tela.desenhe();
-
-        // desenha o fundo e objetos de trás
         this.cenario_tras.forEach(obj => obj.desenhe());
-
-        // desenha a florzinha
+        this.cenario_baixo.desenhe();
         orion.desenhe();
-
-        this.cenario_baixo(obj => obj.desenhe());
-
-        // desenha os objetos da frente
         this.cenario_frente.forEach(obj => obj.desenhe());
     } 
 }
-
-function animation(tela){
-    ctx.clearRect(0,0,canva1.width, canva1.height);
-    tela.desenhe();
-    requestAnimationFrame(() => animation(tela));
-}
-
-animation(tela_2);
 
 document.addEventListener('keydown', function(evento){
     let tecla = evento.key;
@@ -178,9 +168,22 @@ document.addEventListener('keydown', function(evento){
     orion.x = novaX;
     orion.y = novaY;
 
-    if(orion.x + orion.width <= (((cenario_tras.x + cenario_tras.width) + cenario_tras.height)/2)) {
-        orion.x
-    }
+    cenario_tras.forEach(obj => {
+        if(obj === geladeira) {
+            if(orion.x <  (((obj.x + obj.width) + obj.height)/2)) {
+                orion.x
+            }
+        }
+
+    })
     orion.atualizarFrame();
     
 })
+
+function animation(tela){
+    ctx.clearRect(0,0,canva1.width, canva1.height);
+    tela.desenhe();
+    requestAnimationFrame(() => animation(tela));
+}
+
+animation(tela_2);
