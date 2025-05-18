@@ -363,6 +363,8 @@ function animation(tela) {
     texto(10, 'white', '25px Gloria Hallelujah', 'center', 'amigo estava quase terminando a contagem. Você começou a mexer', 500, 300);
     texto(10, 'white', '25px Gloria Hallelujah', 'center', 'em algumas caixas, tentando abrir um espaço onde pudesse se', 500, 345);
     texto(10, 'white', '25px Gloria Hallelujah', 'center', 'enfiar, até que percebeu, atrás delas, um grande baú.', 500, 390);
+    texto(10, 'white', '25px Gloria Hallelujah', 'center', '“8, 7, 6...”', 500, 435);
+    texto(10, 'white', '25px Gloria Hallelujah', 'center', 'Você não pensou duas vezes. Rapidamente, entrou dentro dele.', 500, 480);
   }
   requestAnimationFrame(() => animation(telaAtual));
 }
