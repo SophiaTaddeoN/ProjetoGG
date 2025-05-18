@@ -278,7 +278,7 @@ const flotoGeladeira = new Objetos(
   500,
   500
 );
-const flotoCorpo = new Objetos("Imagens/foto_corpo.png", 250, 50, 500, 500);
+const flotoCorpo = new Objetos("Imagens/orion_bau.jpeg", 250, 50, 500, 500);
 const cadeado = new Objetos("Imagens/cadeado_fechado.png", 250, 50, 500, 500);
 
 let orion = new PersonagemAnimado(
@@ -551,6 +551,11 @@ function animation(tela) {
     }
   }
   if (telaAtual === tela_4) {
+    mostrarRetangulo = true;
+    mostrarTexto = true;
+    tempotexto = Date.now() + 2000;
+  }
+  if (mostrarTexto && telaAtual === tela_4) {
     Retangulo(2, "black", "white", 60, 60, 880, 490);
     texto(
       10,
@@ -633,6 +638,9 @@ function animation(tela) {
       500,
       480
     );
+    if (Date.now() >= tempotexto) {
+      mostrarTexto = false;
+    }
   }
   requestAnimationFrame(() => animation(telaAtual));
 }
@@ -1064,4 +1072,4 @@ document.addEventListener("keydown", function (evento) {
   }
 });
 
-animation(tela_1);
+animation(tela_4);
