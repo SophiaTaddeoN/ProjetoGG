@@ -770,4 +770,4 @@ document.addEventListener("keydown", function (evento) {
 
 });
 
-animation(tela_3);
+animation(tela_1);

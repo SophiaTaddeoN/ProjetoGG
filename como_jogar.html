@@ -15,10 +15,22 @@
   <body>
     <div class="meio coluna">
       <h1 id="titulo">Como jogar</h1>
-      <p class="texto">O controle do perssonagem é feito pelas teclas W, A, S e D de seu teclado - W irá para cima, A irá para esquerda,
-         S irá para baixo e D irá para direita. Quando se aproximar de um objeto interágivel, precione E.
+      <div class="coluna" id="Texto-Box">
+        <p class="texto">
+          O controle do personagem é feito pelas teclas W, A, S e D do teclado: W move o 
+          personagem para cima, A para a esquerda, S para baixo e D para a direita. Quando 
+          se aproximar de um objeto, pressione E. Caso nada aconteça, o objeto não é 
+          interativo; se algo acontecer, ele é interativo. Para sair da interação, 
+          pressione Q.
         </p>
-      
+        <br>
+        <p class="texto">
+          Atenção: Os diálogos possuem tempo. Leia e aguarde. Às vezes, ocorre um bug em 
+          que, mesmo pressionando E em um objeto interativo, a animação não é executada. 
+          Por isso, pressione E nos objetos e, após algum tempo, volte aos objetos e 
+          pressione E novamente.
+        </p>
+      </div>
       <button onclick="IniciaJogo()" class="botao outros-btn margin texto">Jogar</button>
 
       <div id="tela" class="meio">

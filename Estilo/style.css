@@ -24,10 +24,31 @@ body, html {
   justify-content: center;
 }
 
-#Botoes-Lado {
+.EspacoEntreImg {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tamanho {
+  height: 500px;
+  width: 100%;
+}
+
+#ImgOrion-Referencia {
+  margin: 0 0 0 100px;
+}
+
+#Botoes-LadoSobreJogo {
   display: flex;
   justify-content: space-around;
   width: 300px;
+}
+
+.Botoes-LadoPerguntas-Imagens {
+  display: flex;
+  justify-content: space-around;
+  width: 45%;
 }
 
 #Botoes-LadoReferencia {
@@ -70,6 +91,15 @@ body, html {
   display: flex;
 }
 
+#BotaoLinks-Box {
+  margin: 0 0 0 40px;
+  width: 75%;
+}
+
+#Texto-Box {
+  width: 60%;
+}
+
 .botao {
   border: 2px solid white;
   border-radius: 10px;
@@ -103,8 +133,12 @@ body, html {
   text-align: center;
 }
 
-#texto {
+#textoSobreJogo {
   width: 500px;
+}
+
+.textoPergunatas {
+  width: 75%;
 }
 
 .img {
