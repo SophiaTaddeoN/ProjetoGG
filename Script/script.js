@@ -3,7 +3,6 @@ let musica2 = document.getElementById("musica2");
 let canva1 = document.getElementById("canva1");
 let ctx = canva1.getContext("2d");
 let jaColidiu = false;
-// let contador = 0;
 
 let mostrarRetangulo = false;
 let mostrarTexto = false;
@@ -15,6 +14,14 @@ let tempoRetangulo = 0;
 let tempotexto = 0;
 let tempoImagem = 0;
 
+let textoAtual = 0; // 0 = nenhum, 1 = primeiro texto, 2 = segundo texto
+let tempoTexto1 = 0;
+let tempoTexto2 = 0;
+
+let imagemAtual = 0;
+let tempoImagem1 = 0;
+let tempoImagem2 = 0;
+
 let senhaDigitada = "";
 let digitandoSenha = false;
 let podeDigitar = true;
@@ -25,6 +32,11 @@ function IniciaJogo() {
   document.getElementById("tela").style.display = "block";
   musica.play();
   musica.loop = true;
+}
+
+function AcabaJogo() {
+  document.getElementById("tela").style.display = "none";
+  musica2.pause();
 }
 
 function AcabaMusica() {
@@ -280,6 +292,8 @@ const flotoGeladeira = new Objetos(
 );
 const flotoCorpo = new Objetos("Imagens/orion_bau.jpeg", 250, 50, 500, 500);
 const cadeado = new Objetos("Imagens/cadeado_fechado.png", 250, 50, 500, 500);
+const orion_sorrindo = new Objetos("Imagens/orion_sorrindo.png",250, 50, 429, 581);
+const orion_chorando = new Objetos("Imagens/orion_chorando.png", 250, 50, 429, 581);
 
 let orion = new PersonagemAnimado(
   {
@@ -548,99 +562,206 @@ function animation(tela) {
       telaAtual = tela_4;
       ctx.clearRect(0, 0, canva1.width, canva1.height); // Limpa o canvas
       tela_4.desenhe();
+      mostrarRetangulo = true;
+      textoAtual = 1;
+      tempoTexto1 = Date.now() + 40000;
     }
   }
   if (telaAtual === tela_4) {
-    mostrarRetangulo = true;
-    mostrarTexto = true;
-    tempotexto = Date.now() + 2000;
-  }
-  if (mostrarTexto && telaAtual === tela_4) {
-    Retangulo(2, "black", "white", 60, 60, 880, 490);
-    texto(
-      10,
-      "white",
-      "25px Gloria Hallelujah",
-      "center",
-      "Apesar da cena, você permanece estranhamente calmo.",
-      500,
-      120
-    );
-    texto(
-      10,
-      "white",
-      "25px Gloria Hallelujah",
-      "center",
-      "Finalmente, você se lembra… Você e seu amigo estavam brincando",
-      500,
-      165
-    );
-    texto(
-      10,
-      "white",
-      "25px Gloria Hallelujah",
-      "center",
-      "de esconde-esconde naquela sala — o jogo estava empatado.",
-      500,
-      210
-    );
-    texto(
-      10,
-      "white",
-      "25px Gloria Hallelujah",
-      "center",
-      "Você já havia se escondido em quase todos os lugares; seu",
-      500,
-      255
-    );
-    texto(
-      10,
-      "white",
-      "25px Gloria Hallelujah",
-      "center",
-      "amigo estava quase terminando a contagem. Você começou a mexer",
-      500,
-      300
-    );
-    texto(
-      10,
-      "white",
-      "25px Gloria Hallelujah",
-      "center",
-      "em algumas caixas, tentando abrir um espaço onde pudesse se",
-      500,
-      345
-    );
-    texto(
-      10,
-      "white",
-      "25px Gloria Hallelujah",
-      "center",
-      "enfiar, até que percebeu, atrás delas, um grande baú.",
-      500,
-      390
-    );
-    texto(
-      10,
-      "white",
-      "25px Gloria Hallelujah",
-      "center",
-      "“8, 7, 6...”",
-      500,
-      435
-    );
-    texto(
-      10,
-      "white",
-      "25px Gloria Hallelujah",
-      "center",
-      "Você não pensou duas vezes. Rapidamente, entrou dentro dele.",
-      500,
-      480
-    );
-    if (Date.now() >= tempotexto) {
-      mostrarTexto = false;
+    if (mostrarRetangulo) {
+      Retangulo(2, "black", "white", 60, 60, 880, 490);
     }
+    if (textoAtual === 1){
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "Apesar da cena, você permanece estranhamente calmo.",
+        500,
+        120
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "Finalmente, você se lembra… Você e seu amigo estavam brincando",
+        500,
+        165
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "de esconde-esconde naquela sala — o jogo estava empatado.",
+        500,
+        210
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "Você já havia se escondido em quase todos os lugares; seu",
+        500,
+        255
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "amigo estava quase terminando a contagem. Você começou a mexer",
+        500,
+        300
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "em algumas caixas, tentando abrir um espaço onde pudesse se",
+        500,
+        345
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "enfiar, até que percebeu, atrás delas, um grande baú.",
+        500,
+        390
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "“8, 7, 6...”",
+        500,
+        435
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "Você não pensou duas vezes. Rapidamente, entrou dentro dele.",
+        500,
+        480
+      );
+      if (Date.now() >= tempoTexto1) {
+        textoAtual = 2;
+        tempoTexto2 = Date.now() + 40000;
+      }
+    } else if (textoAtual === 2) {
+      Retangulo(2, "black", "white", 60, 60, 880, 490);
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "A tampa se fechou com um estalo surdo.",
+        500,
+        120
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "Você esperou… e esperou… até que o tempo começou a sumir.",
+        500,
+        165
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "O ar parecia ficar mais pesado, os pensamentos, mais vagos.",
+        500,
+        210
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "O sono veio como um cobertor quente... e",
+        500,
+        255
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "depois disso… você não se lembra.",
+        500,
+        300
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "“Ah...”",
+        500,
+        345
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "Você sorri amargamente, com pequenas lágrimas ameaçando",
+        500,
+        390
+      );
+      texto(
+        10,
+        "white",
+        "25px Gloria Hallelujah",
+        "center",
+        "escapar dos seus olhos. Finalmente, você entende:",
+        500,
+        435
+      );
+      if (Date.now() >= tempoTexto2) {
+        textoAtual = 0; // Ou qualquer lógica de finalização
+        mostrarRetangulo = false;
+        imagemAtual = 1;
+        tempoImagem1 = Date.now() + 2500;
+      }
+    } else if (imagemAtual === 1) {
+      orion_sorrindo.desenhe();
+      if (Date.now() >= tempoImagem1) {
+        imagemAtual = 2;
+        tempoImagem2 = Date.now() + 2500;
+      }
+    } else if (imagemAtual === 2) {
+      orion_chorando.desenhe();
+      if (Date.now() >= tempoImagem2) {
+        imagemAtual = 0;
+        textoAtual = 3;
+        mostrarRetangulo = true;
+        tempoRetangulo = Date.now() + 10000;
+      }
+    } else if (textoAtual === 3 && imagemAtual === 0 && mostrarRetangulo) {
+      Retangulo(2, "black", "white", 60, 60, 880, 490);
+      texto(10, 'white', '25px Gloria Hallelujah', 'center', 'E nunca encontraria.', 500, 300);
+      if (Date.now() >= tempoRetangulo) {
+        mostrarRetangulo = false;
+        telaAtual = 0;
+      }
+    }
+  }
+  if (telaAtual === 0) {
+    AcabaJogo();
   }
   requestAnimationFrame(() => animation(telaAtual));
 }
@@ -924,7 +1045,7 @@ document.addEventListener("keydown", function (evento) {
   //Limites das Telas e Colisões
   if (telaAtual === tela_1) {
     orion.x = Math.max(0, Math.min(canva1.width - orion.width, novaX));
-    orion.y = Math.max(0, Math.min(canva1.height - orion.height, novaY));
+    orion.y = Math.max(260, Math.min(canva1.height - orion.height, novaY));
     if (
       ColisaoTrocadeTela_Tela1ToTela2() &&
       !jaColidiu &&
@@ -1070,6 +1191,7 @@ document.addEventListener("keydown", function (evento) {
       musica2.loop = true;
     }
   }
+  console.log(novaY)
 });
 
-animation(tela_4);
+animation(tela_1);
