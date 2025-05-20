@@ -535,7 +535,7 @@ function animation(tela) {
       
       if (Date.now() >= tempoTexto1) {
         textoAtual = 2;
-        tempoTexto2 = Date.now() + 35000;
+        tempoTexto2 = Date.now() + 25000;
       }
     } else if (textoAtual === 2) {
       Retangulo(2, "black", "white", 60, 60, 880, 490);
@@ -568,7 +568,7 @@ function animation(tela) {
         imagemAtual = 0;
         textoAtual = 3;
         mostrarRetangulo = true;
-        tempoRetangulo = Date.now() + 32000;
+        tempoRetangulo = Date.now() + 10000;
       }
     } else if (textoAtual === 3 && imagemAtual === 0 && mostrarRetangulo) {
       Retangulo(2, "black", "white", 60, 60, 880, 490);
